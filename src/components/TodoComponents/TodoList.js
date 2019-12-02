@@ -9,9 +9,10 @@ import Todo from "./Todo";
 const TodoList = props => {
     return (
         <div>
-            {props.list.map(todo => {
+            {props.list.map(todo => (
                 <Todo key={todo.id} todo={todo} />
-            })}
+            ))}
+            <button onClick={props.clearCompleted}>Clear Task</button>
         </div>
     )
 }

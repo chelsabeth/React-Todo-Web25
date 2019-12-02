@@ -24,7 +24,7 @@
                 <form>
                     <input
                     type="text"
-                    name="todo"
+                    name="task"
                     value={this.state.handleChanges}
                     />
                     <button>Add Task</button>
