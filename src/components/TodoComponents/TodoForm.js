@@ -18,14 +18,23 @@
             });
         };
 
+        handleSubmit = e => {
+            e.preventDefualt();
+            this.props.addTask(this.state.newTask);
+            this.setState({
+                newTask: ""
+            });
+        };
+
 
         render() {
             return (
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <input
                     type="text"
                     name="task"
-                    value={this.state.handleChanges}
+                    value={this.state.newTask}
+                    onChange={this.handleChanges}
                     />
                     <button>Add Task</button>
                 </form>

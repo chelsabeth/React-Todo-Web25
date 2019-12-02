@@ -4,8 +4,8 @@ import React from "react";
 
 const Todo = props => {
     return (
-        <div className={`todo${props.todo.purchased ? "purchased" : ""}`}>
-            <p>{props.todo.name}</p>
+        <div className={`todo${props.todo.completed ? "completed" : ""}`}>
+            <p>{props.todo.task}</p>
         </div>
     )
 }
