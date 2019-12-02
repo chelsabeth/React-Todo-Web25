@@ -19,20 +19,20 @@
         };
 
         handleSubmit = e => {
-            e.preventDefualt();
+            e.preventDefault();
             this.props.addTask(this.state.newTask);
             this.setState({
                 newTask: ""
             });
         };
 
-
         render() {
+            console.log("rendering form")
             return (
                 <form onSubmit={this.handleSubmit}>
                     <input
                     type="text"
-                    name="task"
+                    name="todo"
                     value={this.state.newTask}
                     onChange={this.handleChanges}
                     />

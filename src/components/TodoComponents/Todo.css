@@ -1,0 +1,10 @@
+.completed {
+    text-decoration: line-through;
+    color: lightgray;
+}
+/* this is what I used to make the line through when a task is completed, coming from Todo.js */
+
+body {
+    text-align: center;
+    font-size: 20px;
+}

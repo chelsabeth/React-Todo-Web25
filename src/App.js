@@ -2,16 +2,17 @@ import React from 'react';
 
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
 
 const list = [
   {
     task: "Organize Garage",
-    id: Date.now(),
+    id: 1,
     completed: false
   },
   {
     task: "Bake Cookies",
-    id: Date.now(),
+    id: 2,
     completed: false
   }
 ]
@@ -32,17 +33,47 @@ class App extends React.Component {
       task: newTaskText,
       id: Date.now(),
       completed: false
-    }
+    };
     this.setState({
       list: [...this.state.list, newTask]
     })
   }
+
+  toggleItem = id => {
+    console.log("This is from the toggleItem function", id);
+    this.setState({
+      list: this.state.list.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        } else {
+          return todo;
+        }
+      })
+    });
+  };
+
+  clearCompleted = () => {
+    this.setState({
+      list: this.state.list.filter(todo => !todo.completed)
+    });
+  };
+
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTask={this.addTask}/>
-        <TodoList list={this.state.list}/>
+        <div>
+          <h2>Welcome to your Todo App!</h2>
+          <TodoForm addTask={this.addTask}/>
+        </div>
+        <TodoList 
+        toggleItem={this.toggleItem}
+        clearCompleted={this.clearCompleted}
+        list={this.state.list}
+        />
       </div>
     );
   }
